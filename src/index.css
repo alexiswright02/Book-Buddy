@@ -9,3 +9,7 @@ body {
 }
 
 /* Add your own custom styles here */
+img {
+  max-width: 10%;
+  max-height: 10%;
+}

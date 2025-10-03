@@ -11,9 +11,9 @@ function App() {
       {/* two route paths */}
       <Routes>
         {/* route for home page */}
-        <Route path="/" element={<Books />}/>
+        <Route path="/" element={<Books />} />
         {/* route for single view */}
-        <Route path="/:id" element={<SingleBook />}/>
+        <Route path="/books/:id" element={<SingleBook />} />
       </Routes>
     </>
   );

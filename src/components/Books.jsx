@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllBooks } from "../api/api";
-import { Link } from "react-router-dom";
+import AllCards from "./AllCards";
 
 function Books() {
   const [books, setBooks] = useState([]);
@@ -8,11 +8,18 @@ function Books() {
   useEffect(() => {
     async function getAllBooks() {
       const APIResponse = await fetchAllBooks();
-      console.log(APIResponse);
       setBooks(APIResponse);
     }
     getAllBooks();
   }, []);
+
+  //filtered search
+  const [filter, setFilter]= useState("")
+  const updatedList= filter
+  ? books.filter((book)=>
+    book.title.toLowerCase().includes(filter)
+  )
+  : books;
 
   return (
     <>
@@ -24,20 +31,15 @@ function Books() {
           <input
             type="text"
             placeholder="Search for a book"
-            onChange= {(event)=> console.log(event.target.value)}
+            onChange={(event) =>
+            setFilter(event.target.value.toLowerCase())
+            }
           />
         </label>
       </div>
       {/* list of books */}
-      {books.map((book) => {
-        //?????? replace link with useNavigate to add books.id to the url?
-        return (
-          <>
-            <p>
-              <Link to="/id">{book.title}</Link>
-            </p>
-          </>
-        );
+      {updatedList.map((book) => {
+        return <AllCards key={book.id} book={book}/>
       })}
     </>
   );

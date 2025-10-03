@@ -11,20 +11,23 @@ function SingleBook() {
   useEffect(() => {
     async function getSingleBook() {
       const APIResponse = await fetchSingleBook(id);
-      console.log(APIResponse);
-      setBook(APIResponse.id);
+      setBook(APIResponse);
     }
     getSingleBook();
-  },[id]);
+  }, [id]);
 
   return (
     <>
       {/*header*/}
-      <h1>Single Book Component</h1>
-      {/* title */}
-      <p>{book}</p>
+      <h1>Selected Book is....</h1>
       {/* image */}
-      {/* summary */}
+      <img src={book.coverimage} alt={"Cover photo of " + book.title}/>
+      {/* title */}
+      <h2>{book.title}</h2>
+      {/* author */}
+      <h3>{book.author}</h3>
+      {/* description */}
+      <p>{book.description}</p>
     </>
   );
 }
