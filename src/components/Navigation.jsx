@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 function Navigation() {
   return (
     <>
-      <h3><Link to="/">Home</Link></h3>
+      <header>
+        <Link to="/">Home</Link>
+        <br></br>
+        <Link to="/login">Log In</Link>
+      </header>
     </>
   );
 }

@@ -14,12 +14,10 @@ function Books() {
   }, []);
 
   //filtered search
-  const [filter, setFilter]= useState("")
-  const updatedList= filter
-  ? books.filter((book)=>
-    book.title.toLowerCase().includes(filter)
-  )
-  : books;
+  const [filter, setFilter] = useState("");
+  const updatedList = filter
+    ? books.filter((book) => book.title.toLowerCase().includes(filter))
+    : books;
 
   return (
     <>
@@ -31,15 +29,13 @@ function Books() {
           <input
             type="text"
             placeholder="Search for a book"
-            onChange={(event) =>
-            setFilter(event.target.value.toLowerCase())
-            }
+            onChange={(event) => setFilter(event.target.value.toLowerCase())}
           />
         </label>
       </div>
       {/* list of books */}
       {updatedList.map((book) => {
-        return <AllCards key={book.id} book={book}/>
+        return <AllCards key={book.id} book={book} />;
       })}
     </>
   );
