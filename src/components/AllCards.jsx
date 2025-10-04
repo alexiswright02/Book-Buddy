@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function AllCards( book ) {
+function AllCards( {book} ) {
   return (
     <>
       <hr></hr>

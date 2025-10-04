@@ -1,6 +1,8 @@
 //import api info
 const API = "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api";
 
+//-------- BOOKS --------//
+
 //logic for full list view
 export async function fetchAllBooks() {
   try {
@@ -22,3 +24,8 @@ export async function fetchSingleBook(id) {
     console.error(error);
   }
 }
+
+//-------- USERS --------//
+
+
+//-------- RESERVATIONS --------//
